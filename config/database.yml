@@ -1,0 +1,11 @@
+defaults: &defaults
+  adapter: postgresql
+  template: template0
+
+development:
+  <<: *defaults
+  database: amigosalao_development
+
+test:
+  <<: *defaults
+  database: amigosalao_test

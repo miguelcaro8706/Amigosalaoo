@@ -1,0 +1,13 @@
+== Amigo Salao
+
+- Person
+  - Full Name
+  - Email
+  - Gender (Nice to have)
+  - Preferences (Nice to have)
+- Game
+  - run_date
+- SecretFriendship
+  - Person
+  - Friend
+  - Game

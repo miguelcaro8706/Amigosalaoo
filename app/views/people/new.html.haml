@@ -1,0 +1,36 @@
+.row-fluid
+  .span4
+    .well.clearfix       
+      %h2 New Person
+
+      = form_for @person do |f|
+        %ul
+          - @person.errors.full_messages.each do |error|
+            %li= error
+        %fieldset
+          = f.label :full_name
+          = f.text_field :full_name, :class => 'span12'
+
+        %fieldset
+          = f.label :email
+          = f.text_field :email, :class => 'span12'
+
+        = f.submit :class => 'btn btn-primary pull-right'
+        
+  - unless @people.empty?
+    .span8
+      .well
+        %h3 People Added
+        %table.table.table-hover.table-bordered
+          %thead
+            %th
+              Name and Email
+            %th 
+              Action
+          %tbody
+            - @people.each do |person|
+              %tr(id="person_#{person.id}")
+                %td
+                  = name_with_email(person)
+                %td
+                  = link_to "Delete",  person_path(person), :class => 'btn btn-danger', remote: true, method: :delete, confirm: "Are you sure?"
